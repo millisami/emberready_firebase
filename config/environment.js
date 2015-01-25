@@ -30,6 +30,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.firebaseUrl = 'https://emberready-firebase.firebaseio.com'
   }
 
   if (environment === 'test') {
@@ -45,7 +46,18 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
+    ENV.firebaseUrl = 'https://emberready-firebase.firebaseio.com'
+  }
 
+  ENV.contentSecurityPolicy = {
+    'default-src': "'none'",
+    'script-src': "'self' 'unsafe-inline' 'unsafe-eval'",
+    'font-src': "'self'",
+    'connect-src': "'self'",
+    'img-src': "'self'",
+    'report-uri':"'localhost'",
+    'style-src': "'self' 'unsafe-inline'",
+    'frame-src': "'none'"
   }
 
   return ENV;
