@@ -1,0 +1,16 @@
+<header class="bar bar-nav">
+  <h1 class="title">Emberready Firebase</h1>
+</header>
+<div class="content">
+  <form class="content-padded">
+    {{form-errors errors=errors}}
+
+    {{input value=name type="text" placeholder="Enter full name" }}
+    {{input value=email type="email" placeholder="Enter email"}}
+    {{input value=password type='password' placeholder="Password"}}
+
+    <button type="submit" class="btn btn-positive btn-block" {{action "register"}}>Register</button>
+    or {{#link-to 'login'}} Login to your account{{/link-to}}
+
+  </form>
+</div>

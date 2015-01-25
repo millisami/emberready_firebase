@@ -51,9 +51,9 @@ module.exports = function(environment) {
 
   ENV.contentSecurityPolicy = {
     'default-src': "'none'",
-    'script-src': "'self' 'unsafe-inline' 'unsafe-eval'",
+    'script-src': "'self' 'unsafe-inline' 'unsafe-eval' firebaseio.com",
     'font-src': "'self'",
-    'connect-src': "'self'",
+    'connect-src': "'self' firebaseio.com",
     'img-src': "'self'",
     'report-uri':"'localhost'",
     'style-src': "'self' 'unsafe-inline'",

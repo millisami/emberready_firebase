@@ -1,0 +1,16 @@
+<header class="bar bar-nav">
+  <h1 class="title">Login Emberready</h1>
+</header>
+<div class="content">
+  <form class="content-padded">
+    {{form-errors errors=errors}}
+
+    {{input value=model.email type="email" placeholder="Enter email" autofocus=true}}
+    {{input type='password' value=model.password placeholder="Password" }}
+
+
+    <button type="submit" class="btn btn-positive btn-block" {{action "login"}}>Login</button>
+    {{#link-to 'forgot'}}Forgot password?{{/link-to}} or {{#link-to 'register'}}Create new account{{/link-to}}
+
+  </form>
+</div>

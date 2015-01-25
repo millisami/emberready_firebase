@@ -5,7 +5,8 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 var app = new EmberApp({
   'ember-cli-ratchet': {
     'theme': 'ios',
-    'importRatchetJs': true
+    'importRatchetJs': true,
+    'jsComponents': ['toggles', 'sliders']
   }
 });
 

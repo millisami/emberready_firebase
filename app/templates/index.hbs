@@ -1,0 +1,12 @@
+<header class="bar bar-nav">
+  {{#if currentUser}}
+  <button class="btn pull-right" {{action 'logout'}}>
+    Logout
+  </button>
+  {{else}}
+  <button class="btn pull-right" {{action 'register'}}>
+    Sign Up
+  </button>
+  {{/if}}
+  <h1 class="title">Emberready Firebase</h1>
+</header>
