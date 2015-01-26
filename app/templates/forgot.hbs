@@ -1,0 +1,11 @@
+<header class="bar bar-nav">
+  <h1 class="title">Reset Password</h1>
+</header>
+<div class="content">
+  <form class="content-padded">
+    {{form-errors errors=errors}}
+    {{input value=model.email type="email" placeholder="Enter email"}}
+    <button type="submit" class="btn btn-positive btn-block" {{action "reset"}}>Reset</button>
+    {{#link-to 'login'}} Login to your account{{/link-to}}
+  </form>
+</div>
