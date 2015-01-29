@@ -10,7 +10,6 @@ export default Ember.ObjectController.extend({
       self.firebase.createUser(self.get('model'), function (error) {
         if (error === null) {
           console.log("User created successfully");
-
           self.firebase.authWithPassword(self.get('model'), function (error, authData) {
             if (error === null) {
               self.firebase.child('users').child(authData.uid).once('value', function (snap){
@@ -19,7 +18,7 @@ export default Ember.ObjectController.extend({
                   self.firebase.child('users').child(authData.uid).set(authData);
                 }
                 self.store.find('user', authData.uid).then(function (user) {
-                  // self.growl.info('User created successfully.');
+                  self.flashMessage('success', 'Account created successfully');
                   user.set('auth',authData);
                   self.set('currentUser',user);
                   self.transitionToRoute('application');
@@ -27,7 +26,7 @@ export default Ember.ObjectController.extend({
               });
             } else {
               console.log("Account created but failed to login: ", error);
-              // self.growl.info('User created successfully.  Please login.');
+              self.flashMessage('success', 'Account created successfully. Please login.');
               self.transitionToRoute('login');
             }
           });

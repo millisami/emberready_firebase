@@ -24,7 +24,9 @@ export default Ember.Route.extend({
 
     logout: function () {
       this.firebase.unauth();
-      this.transitionTo('application');
+      console.log('Success logout');
+      this.flashMessage('success', 'Success logout');
+      this.transitionTo('login');
     }
   }
 });

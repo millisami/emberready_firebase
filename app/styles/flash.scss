@@ -1,0 +1,37 @@
+.flash_messages {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.85098);
+  color: #d2d2d2;
+  height: auto;
+  font-size: 14px;
+  dl {
+    position: relative;
+    margin: 5px 0 0 0;
+    padding: 0;
+
+    dt {
+      display: none;
+    }
+    dd {
+      padding: 0 5px 5px 5px;
+      -webkit-margin-start: 0;
+      border-bottom: 1px solid #c8c7cc;
+    }
+  }
+}
+
+@include mod(flash_messages) {
+  @extend .flash_messages;
+}
+
+.flash_messages-success {
+  background-color: green; // Overrides default
+}
+
+.flash_messages-error {
+  background-color: red; // Overrides default
+}
