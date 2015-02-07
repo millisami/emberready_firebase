@@ -3,6 +3,8 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   needs: ['application'],
   currentUser: Ember.computed.alias('controllers.application.currentUser'),
+  isLoading: false,
+  buttonText: 'Login',
   actions: {
     login: function () {
       var self = this;
@@ -25,9 +27,11 @@ export default Ember.Controller.extend({
               }
             });
           });
+          Ember.run.later(function () { self.set('isLoading', false); }, 1000);
         } else {
           console.log("Error authenticating user:", error);
           self.set('errors', error);
+          Ember.run.later(function () { self.set('isLoading', false); }, 1000);
         }
       });
     }

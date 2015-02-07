@@ -8,9 +8,7 @@
     {{input value=model.email type="email" placeholder="Enter email" autofocus=true}}
     {{input type='password' value=model.password placeholder="Password" }}
 
-
-    <button type="submit" class="btn btn-positive btn-block" {{action "login"}}>Login</button>
+    {{spin-button id='login' isLoading=isLoading buttonText=buttonText action='login'}}
     {{#link-to 'forgot'}}Forgot password?{{/link-to}} or {{#link-to 'register'}}Create new account{{/link-to}}
-
   </form>
 </div>

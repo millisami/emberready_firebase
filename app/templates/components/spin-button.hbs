@@ -1,0 +1,7 @@
+<button {{bind-attr id=id}} {{action 'showLoading'}} class='btn btn-positive btn-block'>
+  {{#if isLoading}}
+    <img src="/assets/images/spiffygif_32x32.gif">
+  {{else}}
+    {{buttonText}}
+  {{/if}}
+</button>
