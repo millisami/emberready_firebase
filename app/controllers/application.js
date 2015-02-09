@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import ENV from '../config/environment';
 
 export default Ember.Controller.extend({
   init:function(){
@@ -13,5 +14,6 @@ export default Ember.Controller.extend({
         console.log('User is logged out');
       }
     });
-  }
+  },
+  development: Ember.computed.equal(ENV.environment, "development")
 });

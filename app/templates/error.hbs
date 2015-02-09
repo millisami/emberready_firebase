@@ -1,0 +1,13 @@
+<header class="bar bar-nav">
+  <h1 class="title">Emberready Error!!</h1>
+</header>
+<div class="content">
+  <div class="content-padded">
+    <h2>App is sorry. We've reported it about this error.</h2>
+    {{#if development}}
+    <p>Hey Dev. Here's some info:</p>
+    <h4>{{message}}</h4>
+    <p>{{stack}}</p>
+    {{/if}}
+  </div>
+</div>
