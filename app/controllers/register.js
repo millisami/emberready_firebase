@@ -18,7 +18,7 @@ export default Ember.ObjectController.extend({
                   self.firebase.child('users').child(authData.uid).set(authData);
                 }
                 self.store.find('user', authData.uid).then(function (user) {
-                  self.flashMessage('success', 'Account created successfully');
+                  self.get('flashes').success('Account created successfully');
                   user.set('auth',authData);
                   self.set('currentUser',user);
                   self.transitionToRoute('application');
@@ -26,7 +26,7 @@ export default Ember.ObjectController.extend({
               });
             } else {
               console.log("Account created but failed to login: ", error);
-              self.flashMessage('success', 'Account created successfully. Please login.');
+              self.get('flashes').danger('Account created successfully. Please login.');
               self.transitionToRoute('login');
             }
           });

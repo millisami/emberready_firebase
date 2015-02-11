@@ -9,11 +9,11 @@ export default Ember.Controller.extend({
       var self = this;
       self.set('errors', null);
       this.get('currentUser').save().then(function () {
-        // self.growl.info('Profile updated successfully.');
+        self.get('flashes').success('Profile updated successfully.');
         self.transitionToRoute('index');
       }).catch(function(){
         self.set('errors', 'Error saving profile.  Please, try again.');
-        // self.growl.error('Error saving profile.  Please, try again.');
+        self.get('flashes').danger('Error saving profile.  Please, try again.');
       });
     }
   }

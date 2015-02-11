@@ -11,7 +11,7 @@ export default Ember.Controller.extend({
       self.set('errors', null);
       this.firebase.authWithPassword(this.get('model'), function (error, authData) {
         if (error === null) {
-          self.flashMessage('success', 'Success Login');
+          self.get('flashes').success('Success Login');
           self.firebase.child('users').child(authData.uid).once('value', function (snap){
             if (snap.val() == null) {
               self.firebase.child('users').child(authData.uid).set(authData);

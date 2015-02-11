@@ -23,7 +23,7 @@ export default Ember.Controller.extend({
               self.set('errors', { message: "Error changing password.  Try again." });
           }
         } else {
-        // self.growl.info('Password changed successfully.');
+        self.get('flashes').success('Password changed successfully.');
         self.transitionToRoute('index');
       }
     });

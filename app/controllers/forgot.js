@@ -11,7 +11,7 @@ export default Ember.Controller.extend({
       self.set('errors', null);
       this.firebase.resetPassword(this.get('model'), function (error) {
         if (error === null) {
-        // self.growl.info('We have sent you an email with password reset instructions.');
+        self.get('flashes').success('We have sent you an email with password reset instructions.');
         self.transitionToRoute('login');
         } else {
           console.log("Error authenticating user:", error);
