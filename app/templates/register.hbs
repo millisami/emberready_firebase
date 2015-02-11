@@ -9,7 +9,7 @@
     {{input value=email type="email" placeholder="Enter email"}}
     {{input value=password type='password' placeholder="Password"}}
 
-    <button type="submit" class="btn btn-positive btn-block" {{action "register"}}>Register</button>
+    {{spin-button id='register' isLoading=isLoading buttonText=buttonText action='register'}}
     or {{#link-to 'login'}} Login to your account{{/link-to}}
 
   </form>

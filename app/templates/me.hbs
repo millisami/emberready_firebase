@@ -5,7 +5,8 @@
     <h4>My Profile</h4>
     {{form-errors errors=errors}}
     {{input value=currentUser.name class="form-controll" id="me_name"}}
-    <button type="submit" class="btn btn-positive btn-block" {{action "update"}}>Submit</button>
+
+    {{spin-button id='update' isLoading=isLoading buttonText=buttonText action='update'}}
   </form>
   {{#link-to 'changePassword' class='btn btn-block'}}Change Password{{/link-to}}
 </div>

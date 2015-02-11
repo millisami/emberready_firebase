@@ -5,7 +5,7 @@
   <form class="content-padded">
     {{form-errors errors=errors}}
     {{input value=model.email type="email" placeholder="Enter email"}}
-    <button type="submit" class="btn btn-positive btn-block" {{action "reset"}}>Reset</button>
+    {{spin-button id='reset' isLoading=isLoading buttonText=buttonText action='reset'}}
     {{#link-to 'login'}} Login to your account{{/link-to}}
   </form>
 </div>

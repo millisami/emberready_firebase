@@ -3,6 +3,9 @@ import Ember from 'ember';
 export default Ember.ObjectController.extend({
   needs: ['application'],
   currentUser: Ember.computed.alias('controllers.application.currentUser'),
+  isLoading: false,
+  buttonText: 'Register',
+
   actions: {
     register: function () {
       var self = this;
@@ -34,6 +37,7 @@ export default Ember.ObjectController.extend({
           console.log("Error creating user:", error);
           self.set('errors', error);
         }
+        Ember.run.later(function () { self.set('isLoading', false); }, 1000);
       });
     }
   }

@@ -4,6 +4,8 @@ var computed = Ember.computed;
 export default Ember.Controller.extend({
   needs: ['application'],
   currentUser: computed.alias('controllers.application.currentUser'),
+  isLoading: false,
+  buttonText: 'Change',
 
   actions: {
     change: function () {
@@ -11,6 +13,7 @@ export default Ember.Controller.extend({
       var self = this;
       self.set('errors', null);
       this.firebase.changePassword(this.get('model'), function (err) {
+        Ember.run.later(function () { self.set('isLoading', false); }, 1000);
         if (err) {
           switch (err.code) {
             case 'INVALID_PASSWORD':
@@ -23,9 +26,9 @@ export default Ember.Controller.extend({
               self.set('errors', { message: "Error changing password.  Try again." });
           }
         } else {
-        self.get('flashes').success('Password changed successfully.');
-        self.transitionToRoute('index');
-      }
+          self.get('flashes').success('Password changed successfully.');
+          self.transitionToRoute('index');
+        }
     });
     }
   }
