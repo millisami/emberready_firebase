@@ -4,3 +4,14 @@
 * {
   outline: none;
 }
+
+.absolute-center {
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  left: 38%;
+  top: 34%;
+  background: #fff;
+  display: table-cell;
+  vertical-align: middle;
+}
